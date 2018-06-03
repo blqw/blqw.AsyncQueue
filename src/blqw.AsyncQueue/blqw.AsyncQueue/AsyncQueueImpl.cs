@@ -38,12 +38,15 @@ namespace blqw
             await _in.WaitAsync(token);
             try
             {
-                while (_queue.Count >= MaxCapacity)
+                if (_queue.Count >= MaxCapacity)
                 {
                     switch (OverflowRule)
                     {
                         case OverflowRule.DiscardFirst:
-                            await Dequeue(token);
+                            do
+                            {
+                                await Dequeue(token);
+                            } while (_queue.Count >= MaxCapacity);
                             break;
                         case OverflowRule.DiscardLast:
                             return;
@@ -76,7 +79,7 @@ namespace blqw
             DisposeSemaphoreSlim(_out);
         }
 
-        public int MaxCapacity { get; set; }
+        public int MaxCapacity { get; set; } = int.MaxValue;
         public OverflowRule OverflowRule { get; set; }
     }
 }
