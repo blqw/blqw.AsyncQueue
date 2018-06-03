@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>blqw</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>blqw</Authors>
+    <Description>异步队列</Description>
+    <Copyright>blqw</Copyright>
+    <PackageLicenseUrl>https://github.com/blqw/blqw.AsyncQueue/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/blqw/blqw.AsyncQueue</PackageProjectUrl>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/9656154?s=64&amp;v=4</PackageIconUrl>
+    <RepositoryUrl>https://github.com/blqw/blqw.AsyncQueue</RepositoryUrl>
+    <PackageTags>blqw,queue,async,task,await</PackageTags>
+  </PropertyGroup>
+
+</Project>
