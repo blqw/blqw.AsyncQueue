@@ -13,9 +13,9 @@
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/9656154?s=64&amp;v=4</PackageIconUrl>
     <RepositoryUrl>https://github.com/blqw/blqw.AsyncQueue</RepositoryUrl>
     <PackageTags>blqw,queue,async,task,await</PackageTags>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1.1</Version>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
   </PropertyGroup>
 
 </Project>

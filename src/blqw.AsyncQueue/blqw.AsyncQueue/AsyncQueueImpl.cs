@@ -38,7 +38,7 @@ namespace blqw
             await _in.WaitAsync(token);
             try
             {
-                if (_queue.Count >= MaxCapacity)
+                while (_queue.Count >= MaxCapacity)
                 {
                     switch (OverflowRule)
                     {
