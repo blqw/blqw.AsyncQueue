@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace blqw
         public async Task<T> Dequeue(CancellationToken token)
         {
             await _out.WaitAsync(token);
-            return _queue.TryDequeue(out var val) ? val : throw new System.InvalidOperationException();
+            return _queue.TryDequeue(out var val) ? val : throw new InvalidOperationException("队列取值失败");
         }
 
         public async Task Enqueue(T item, CancellationToken token)
@@ -37,6 +38,20 @@ namespace blqw
             await _in.WaitAsync(token);
             try
             {
+                if (_queue.Count >= MaxCapacity)
+                {
+                    switch (OverflowRule)
+                    {
+                        case OverflowRule.DiscardFirst:
+                            await Dequeue(token);
+                            break;
+                        case OverflowRule.DiscardLast:
+                            return;
+                        case OverflowRule.ThrowException:
+                        default:
+                            throw new IndexOutOfRangeException("队列堆积元素超过允许的最大值");
+                    }
+                }
                 _queue.Enqueue(item);
                 _out.Release();
             }
@@ -60,5 +75,8 @@ namespace blqw
             DisposeSemaphoreSlim(_in);
             DisposeSemaphoreSlim(_out);
         }
+
+        public int MaxCapacity { get; set; }
+        public OverflowRule OverflowRule { get; set; }
     }
 }

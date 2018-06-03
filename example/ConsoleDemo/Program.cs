@@ -14,7 +14,7 @@ namespace ConsoleDemo
             var queue = AsyncQueue.Create<string>();
             var source = new CancellationTokenSource();
             var token = source.Token;
-            var senders = Enumerable.Range(0, 3).Select(index => new Sender(index, queue, (ConsoleColor)(index+13))).ToArray();
+            var senders = Enumerable.Range(0, 3).Select(index => new Sender(index, queue, (ConsoleColor)(index + 13))).ToArray();
             var receivers = Enumerable.Range(0, 10).Select(index => new Receiver(index, queue, (ConsoleColor)(index + 5))).ToArray();
 
             Parallel.ForEach(receivers, async x => await x.Receive(token));
@@ -29,7 +29,6 @@ namespace ConsoleDemo
                     await x.Send(Interlocked.Increment(ref message).ToString());
                 }
             });
-
             Console.ReadLine();
             source.Cancel();
             Console.ReadLine();

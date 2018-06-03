@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blqw.AsyncQueue", "blqw.AsyncQueue\blqw.AsyncQueue.csproj", "{D72B3469-E0C5-4BC7-9A97-D15ABA96D1D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blqw.AsyncQueue", "blqw.AsyncQueue\blqw.AsyncQueue.csproj", "{D72B3469-E0C5-4BC7-9A97-D15ABA96D1D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{2723C7A7-C0E0-4C5A-9F55-8A92817F80D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemo", "..\..\example\ConsoleDemo\ConsoleDemo.csproj", "{2BDFD3BD-25DC-4582-A576-BD98C7731437}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{74C512DE-0894-49D1-9DD9-3E35402ABAC0}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\LICENSE = ..\..\LICENSE
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

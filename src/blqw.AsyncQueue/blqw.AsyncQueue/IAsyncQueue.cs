@@ -13,6 +13,14 @@ namespace blqw
     public interface IAsyncQueue<T>: IDisposable
     {
         /// <summary>
+        /// 最大容量
+        /// </summary>
+        int MaxCapacity { get; set; }
+        /// <summary>
+        /// 元素溢出规则
+        /// </summary>
+        OverflowRule OverflowRule { get; set; }
+        /// <summary>
         /// 清空队列。
         /// </summary>
         /// <param name="token">可用于取消工作的取消标记</param>
